@@ -8,12 +8,12 @@ fetchCoins();
 
 const makeList = async () => {
  const coinsArr = await fetchCoins();
+ const coins10 = coinsArr.slice(0, 10);
  const list = document.getElementById('coins-list');
- coinsArr.map((coin) => {
+ coins10.map((coin) => {
   const createLi = document.createElement('li');
   createLi.innerText = `${coin.name} (${coin.symbol}): ${Number(coin.priceUsd).toFixed(2)}`;
   list.appendChild(createLi);
-  console.log(createLi);
   return undefined;
  });
 };
